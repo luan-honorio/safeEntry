@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100&family=Poppins:wght@100&display=swap');
+body {
+   background: var(--gradiant, linear-gradient(90deg, #2FA2EE 30.47%, #2786C4 96.22%));
+    overflow-y: hidden;
+    animation: 1s ease-out 0s 1 slideInFromLeft;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.container{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+height: 100vh;
+}
+
+svg{
+  width: 346.371px;
+height: 430.582px;
+}
+ @keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to { 
+        transform: rotate(360deg);
+    }
+}
+ 
+
+ @-webkit-keyframes rotate {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to { 
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+.load {
+width: 600px;
+height: 600px;
+	margin: 110px auto 0;
+	border:solid 10px #fff;
+	border-radius: 50%;
+	border-right-color: transparent;
+	border-bottom-color: transparent;
+	 -webkit-transition: all 0s ease-in;
+    -webkit-animation-name:             rotate; 
+    -webkit-animation-duration:         1.0s; 
+    -webkit-animation-iteration-count:  infinite;
+    -webkit-animation-timing-function: linear;
+     transition: all 0s ease-in;
+    animation-name:             rotate; 
+    animation-duration:         1.0s; 
+    animation-iteration-count:  infinite;
+    animation-timing-function: linear; 
+    position: absolute;
+    top: 70px;
+}
+
+.Name{
+    color: #FFF;
+text-shadow: 0px 4px 12px #000;
+font-family: Outfit;
+font-size: 80px;
+font-weight: 600;
+position: absolute;
+bottom: 0px;
+}
