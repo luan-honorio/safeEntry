@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { StartComponent } from './start/start.component';
+import { AcessComponent } from './acess/acess.component';
 
 const routes: Routes = [
   {
@@ -13,10 +14,14 @@ component : StartComponent,
   component : LoginComponent,
   },
   {
+      path : '\acess',
+      component : AcessComponent,
+  },
+  {
     path : '',
     pathMatch : 'full',
-    redirectTo : 'Login',
-  }
+    redirectTo : 'Login'
+  },
 ];
 
 @NgModule({

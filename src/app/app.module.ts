@@ -8,11 +8,14 @@ import { RouterLinkActive, RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { StartComponent } from './start/start.component';
 import { FormsModule} from '@angular/forms';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { AcessComponent } from './acess/acess.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    StartComponent
+    StartComponent,
+    AcessComponent
   ],
   imports: [
     BrowserModule,
@@ -21,6 +24,7 @@ import { FormsModule} from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
     RouterLinkActive,
+    HttpClientModule
     
   ],
   providers: [],

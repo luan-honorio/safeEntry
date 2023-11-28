@@ -1,0 +1,28 @@
+
+main{
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(to bottom , #274430, #10B80C)
+   
+}
+
+section{
+    max-width: 100%;
+    max-height: 100%;
+
+    
+
+ 
+    
+}
+div{
+   
+    display: flex;
+    align-items: center;
+    margin: auto auto;
+    justify-content: center;
+ 
+}
