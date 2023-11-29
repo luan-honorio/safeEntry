@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { StartComponent } from './start/start.component';
 import { AcessComponent } from './acess/acess.component';
+import { ReconComponent } from './recon/recon.component';
 
 const routes: Routes = [
   {
@@ -10,7 +11,7 @@ path: '\start',
 component : StartComponent,
   },
   {
-  path : 'Login',
+  path : '\Login',
   component : LoginComponent,
   },
   {
@@ -22,6 +23,10 @@ component : StartComponent,
     pathMatch : 'full',
     redirectTo : 'Login'
   },
+  {
+    path : "\recon",
+    component : ReconComponent
+  }
 ];
 
 @NgModule({
