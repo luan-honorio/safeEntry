@@ -27,10 +27,12 @@ export class StartComponent implements OnInit{
      
       sessionStorage.setItem('user', JSON.stringify(res)); 
       this.user  = sessionStorage.getItem('user');
+      
+      const log = this.user; 
 
-      if(this.user){
-          this.router.navigate(['/acess'])
-      }
+      
+          this.router.navigate(['/acess' , {log  : JSON.stringify(this.user)}])
+      
     })
   
   }

@@ -5,6 +5,7 @@ main{
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     background-image: linear-gradient(to bottom , #274430, #10B80C)
    
 }
@@ -12,17 +13,36 @@ main{
 section{
     max-width: 100%;
     max-height: 100%;
-
-    
-
- 
-    
 }
 div{
    
     display: flex;
     align-items: center;
     margin: auto auto;
+    flex-direction: column;
     justify-content: center;
  
+}
+
+p{
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(to bottom , #274430, #10B80C)
+   
+}
+
+
+/* negação */
+
+
+.bacneg{
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(to bottom , #912f25, #b8340c)
 }
