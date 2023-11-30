@@ -10,14 +10,14 @@ import { StartComponent } from './start/start.component';
 import { FormsModule} from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AcessComponent } from './acess/acess.component';
-import { ReconComponent } from './recon/recon.component';
+import { FaceDetectionComponent } from './recon/recon.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     StartComponent,
     AcessComponent,
-    ReconComponent
+    FaceDetectionComponent
   ],
   imports: [
     BrowserModule,

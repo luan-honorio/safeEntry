@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { StartComponent } from './start/start.component';
 import { AcessComponent } from './acess/acess.component';
-import { ReconComponent } from './recon/recon.component';
+import { FaceDetectionComponent } from './recon/recon.component';
 
 const routes: Routes = [
   {
@@ -25,7 +25,7 @@ component : StartComponent,
   },
   {
     path : "\recon",
-    component : ReconComponent
+    component : FaceDetectionComponent
   }
 ];
 

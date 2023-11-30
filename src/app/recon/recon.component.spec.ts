@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ReconComponent } from './recon.component';
+import { FaceDetectionComponent } from './recon.component';
 
-describe('ReconComponent', () => {
-  let component: ReconComponent;
-  let fixture: ComponentFixture<ReconComponent>;
+describe('FaceDetectionComponent', () => {
+  let component: FaceDetectionComponent;
+  let fixture: ComponentFixture<FaceDetectionComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ReconComponent]
+      declarations: [FaceDetectionComponent]
     });
-    fixture = TestBed.createComponent(ReconComponent);
+    fixture = TestBed.createComponent(FaceDetectionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
