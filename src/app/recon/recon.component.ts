@@ -1,37 +1,76 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
-
-
-
-declare const faceapi: any; 
 
 @Component({
   selector: 'recon',
   templateUrl: './recon.component.html',
   styleUrls: ['./recon.component.css']
 })
-export class FaceDetectionComponent {
-  @ViewChild('imageInput')
-  imageInput!: ElementRef;
+export class FaceDetectionComponent implements AfterViewInit {
+  @ViewChild('videoElement')
+  videoElement!: ElementRef;
 
   constructor(private router: Router) {}
 
-  async detectFaces(): Promise<void> {
-    const input = this.imageInput.nativeElement as HTMLInputElement;
+  ngAfterViewInit(): void {
+    this.startVideo();
+  }
 
-    if (input.files && input.files.length > 0) {
-      const imgFile = input.files[0];
-      const img = await faceapi.bufferToImage(imgFile);
-      
-      await faceapi.nets.tinyFaceDetector.loadFromUri('/models');
-      
-      const detections = await faceapi.detectAllFaces(img, new faceapi.TinyFaceDetectorOptions());
+  async startVideo(): Promise<void> {
+    const video = this.videoElement.nativeElement as HTMLVideoElement;
 
-      if (detections && detections.length > 0) {
-        this.router.navigate(['\acess']); 
-      } else {
-        console.log('No faces detected.');
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ video: {} });
+      video.srcObject = stream;
+    } catch (err) {
+      console.error(err);
+    }
+
+    video.addEventListener('play', async () => {
+      const canvas = document.createElement('canvas');
+      document.body.append(canvas);
+      const context = canvas.getContext('2d');
+
+      setInterval(() => {
+        if (video.paused || video.ended) {
+          return;
+        }
+
+        const width = video.videoWidth;
+        const height = video.videoHeight;
+        canvas.width = width;
+        canvas.height = height;
+        context?.drawImage(video, 0, 0, width, height);
+
+        const imageData = context?.getImageData(0, 0, width, height);
+        if (imageData) {
+          const skinPixels = this.detectSkin(imageData);
+          const faceDetected = skinPixels > 10000; // Adjust threshold as needed
+
+          if (faceDetected) {
+            console.log("Face detected");
+            this.router.navigate(['/acess']);
+          }
+        }
+      }, 1000); // Adjust the interval as needed
+    });
+  }
+
+  detectSkin(imageData: ImageData): number {
+    const pixels = imageData.data;
+    let skinPixels = 0;
+
+    for (let i = 0; i < pixels.length; i += 4) {
+      const red = pixels[i];
+      const green = pixels[i + 1];
+      const blue = pixels[i + 2];
+
+      // Simple heuristic for skin color based on RGB values
+      if (red > 60 && green > 40 && blue > 20 && red > green && red > blue && Math.abs(red - green) > 15) {
+        skinPixels++;
       }
     }
+
+    return skinPixels;
   }
 }

@@ -1,0 +1,25 @@
+
+  canvas {
+      display: none;
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.invisible-canvas {
+    display: none;
+  }
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  video{
+    border-radius: 20%;
+    margin: 0 auto;
+  }
