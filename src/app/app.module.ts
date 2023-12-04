@@ -11,13 +11,15 @@ import { FormsModule} from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AcessComponent } from './acess/acess.component';
 import { FaceDetectionComponent } from './recon/recon.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     StartComponent,
     AcessComponent,
-    FaceDetectionComponent
+    FaceDetectionComponent,
+ 
   ],
   imports: [
     BrowserModule,

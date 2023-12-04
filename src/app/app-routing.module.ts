@@ -5,6 +5,7 @@ import { StartComponent } from './start/start.component';
 import { AcessComponent } from './acess/acess.component';
 import { FaceDetectionComponent } from './recon/recon.component';
 
+
 const routes: Routes = [
   {
 path: '\start',
@@ -24,7 +25,7 @@ component : StartComponent,
     redirectTo : 'Login'
   },
   {
-    path : "\recon",
+    path : "recon",
     component : FaceDetectionComponent
   }
 ];
