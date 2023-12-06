@@ -1,3 +1,7 @@
+
+
+
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
 
 main {
@@ -24,6 +28,7 @@ main {
   align-items: center;
   height: 100vh;
 }
+
 
 form {
   width: 100%;
@@ -68,10 +73,55 @@ input::placeholder {
 
 }
 
-.wrapper {
+
+
+form {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+input {
+  width: 100%;
+  height: 6rem;
+  border-radius: 80px;
+  background: #FFF;
+  border: none;
+  font-size: 90px;
+  text-align: center;
+  font-family: Poppins;
+  color: #2E9FEA;
+  font-weight: 700;
+  outline: none;
+  caret-color: #2FA2EE;
+  caret-shape: bar;
+}
+
+
+input:focus {
+  color: #2FA2EE;
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input::placeholder {
+  background: var(--gradiant, linear-gradient(135deg, #2FA2EE 30.47%, #2786C4 96.22%));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: Poppins;
+  font-size: 90px;
+  font-weight: 900;
+  position: center;
+
+}
+
+
+input[type="number"]::-webkit-input-placeholder {
+  color: #2E9FEA;
 }
 
 h1 {

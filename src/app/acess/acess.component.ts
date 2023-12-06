@@ -18,6 +18,7 @@ export class AcessComponent implements OnInit {
     this.Dado = JSON.parse(this.activeRouter.snapshot.paramMap.get('log') as string)
     this.Dados = JSON.parse(this.Dado);
     console.log(this.Dados)
+
     }
 
 

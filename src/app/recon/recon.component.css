@@ -1,12 +1,17 @@
-body {
+
+.container {
   margin: 0;
   padding: 0;
   width: 100vw;
+
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+
+
   background-color: #f5f5f5; /* Cor de fundo */
+
 }
 
 video {
@@ -14,4 +19,5 @@ video {
   height: 100%;
   object-fit: cover;
   transform: scale(-1, 1); /* Flip horizontal para o vídeo parecer um espelho */
+
 }
