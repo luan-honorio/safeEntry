@@ -31,7 +31,7 @@ export class StartComponent implements OnInit{
       const log = this.user; 
 
       
-          this.router.navigate(['/acess' , {log  : JSON.stringify(this.user)}])
+          this.router.navigate(['/recon' , {log  : JSON.stringify(this.user)}])
       
     })
   
