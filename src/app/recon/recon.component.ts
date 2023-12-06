@@ -28,7 +28,7 @@ export class FaceDetectionComponent implements AfterViewInit {
 
     video.addEventListener('play', async () => {
       const canvas = document.createElement('canvas');
-      
+
       const context = canvas.getContext('2d');
 
       setInterval(() => {
@@ -45,14 +45,16 @@ export class FaceDetectionComponent implements AfterViewInit {
         const imageData = context?.getImageData(0, 0, width, height);
         if (imageData) {
           const skinPixels = this.detectSkin(imageData);
-          const faceDetected = skinPixels > 10000; // Adjust threshold as needed
-
+          const faceDetected = skinPixels > 10000; 
           if (faceDetected) {
             console.log("Face detected");
             this.router.navigate(['/acess']);
           }
         }
+
       }, 3333); // Adjust the interval as needed
+
+    
     });
   }
 
@@ -64,6 +66,8 @@ export class FaceDetectionComponent implements AfterViewInit {
       const red = pixels[i];
       const green = pixels[i + 1];
       const blue = pixels[i + 2];
+
+
 
       if (red > 60 && green > 40 && blue > 20 && red > green && red > blue && Math.abs(red - green) > 15) {
         skinPixels++;
