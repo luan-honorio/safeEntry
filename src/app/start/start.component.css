@@ -1,32 +1,34 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
-
-
-.container{
+form {
+  width: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  width: 95%;
-  height: 100vh;
- 
 }
 
-form{
-width: 100%;
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
-input{
-    height: 7rem ;
-    border-radius: 80px;
-    background: #FFF;
-    font-size: 80px;
-    text-align: center;
-    font-family: Poppins;
-    color:#2E9FEA ;
-    outline: none;
-    
-}
-p{
-  color:#2e9fea80;
+
+input[type="number"] {
+  height: 7rem;
+  border-radius: 80px;
+  background: #FFF;
+  font-size: 80px;
+  text-align: center;
   font-family: Poppins;
+  color: #2E9FEA;
+  outline: none;
+}
+
+input[type="number"]::-webkit-input-placeholder {
+  color: #2E9FEA;
+}
+
+h1 {
+  color: #fefeff80;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: 40px;
-  font-weight: 900;
-  }
+  font-weight: bold;
+}
