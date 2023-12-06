@@ -1,4 +1,5 @@
 import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'recon',
@@ -9,48 +10,48 @@ export class FaceDetectionComponent implements AfterViewInit {
   @ViewChild('videoElement')
   videoElement!: ElementRef;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
-  async ngAfterViewInit(): Promise<void> {
+  ngAfterViewInit(): void {
+    this.startVideo();
+  }
+
+  async startVideo(): Promise<void> {
     const video = this.videoElement.nativeElement as HTMLVideoElement;
 
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ video: {} });
       video.srcObject = stream;
-
-      video.addEventListener('play', async () => {
-        const canvas = document.createElement('canvas');
-        const context = canvas.getContext('2d');
-
-        const width = video.width;
-        const height = video.height;
-        canvas.width = width;
-        canvas.height = height;
-
-        document.body.appendChild(canvas);
-
-        setInterval(() => {
-          if (video.paused || video.ended) {
-            return;
-          }
-
-          context?.drawImage(video, 0, 0, width, height);
-          const imageData = context?.getImageData(0, 0, width, height);
-
-          if (imageData) {
-            const skinPixels = this.detectSkin(imageData);
-            const faceDetected = skinPixels > 10000; // Adjust threshold as needed
-
-            if (faceDetected) {
-              console.log('Face detected');
-              // Implement your logic here upon face detection
-            }
-          }
-        }, 1000); // Adjust the interval as needed
-      });
     } catch (err) {
       console.error(err);
     }
+
+    video.addEventListener('play', async () => {
+      const canvas = document.createElement('canvas');
+      const context = canvas.getContext('2d');
+
+      setInterval(() => {
+        if (video.paused || video.ended) {
+          return;
+        }
+
+        const width = video.videoWidth;
+        const height = video.videoHeight;
+        canvas.width = width;
+        canvas.height = height;
+        context?.drawImage(video, 0, 0, width, height);
+
+        const imageData = context?.getImageData(0, 0, width, height);
+        if (imageData) {
+          const skinPixels = this.detectSkin(imageData);
+          const faceDetected = skinPixels > 10000; 
+          if (faceDetected) {
+            console.log("Face detected");
+            this.router.navigate(['/acess']);
+          }
+        }
+      }, 1000); 
+    });
   }
 
   detectSkin(imageData: ImageData): number {
@@ -62,7 +63,7 @@ export class FaceDetectionComponent implements AfterViewInit {
       const green = pixels[i + 1];
       const blue = pixels[i + 2];
 
-      // Simple heuristic for skin color based on RGB values
+   
       if (red > 60 && green > 40 && blue > 20 && red > green && red > blue && Math.abs(red - green) > 15) {
         skinPixels++;
       }
